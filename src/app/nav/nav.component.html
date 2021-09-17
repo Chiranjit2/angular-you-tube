@@ -1,0 +1,127 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+   
+      <mat-toolbar>
+        <div>
+          <span><button mat-icon-button>
+          <mat-icon>menu</mat-icon>
+          </button></span>
+          <span><button mat-button><img [src]="myimg" class="img1"></button></span>
+        </div>
+    </mat-toolbar>
+    <mat-nav-list>
+      <mat-card>
+        <div>
+          <button mat-icon-button>
+            <mat-icon>home</mat-icon>             Home
+          </button>
+        </div>
+        <div>
+          <button mat-icon-button>
+            <mat-icon>explore</mat-icon>          Explore
+          </button>
+        </div>
+        <div>
+          <button mat-icon-button>
+              <mat-icon>subscriptions</mat-icon>   Subscriptions
+          </button>
+        </div>
+        <div>
+          <button mat-icon-button>
+            <mat-icon>video_library</mat-icon>     Library
+          </button>
+        </div>
+        <div>
+          <button mat-icon-button>
+            <mat-icon>history</mat-icon>           History
+          </button>
+        </div>
+        <div>
+          <button mat-icon-button>
+              <mat-icon>slideshow</mat-icon>       Your Video
+          </button>
+        </div>
+        <div>
+          <button mat-icon-button>
+              <mat-icon>watch_later</mat-icon>   Watch Later
+          </button>
+            
+        </div>
+        <div>
+          <button mat-icon-button>
+              <mat-icon>thumb_up</mat-icon>       Liked Videos
+          </button>
+        </div>
+    </mat-card>
+    <div>
+      <button mat-icon-button (click)="back()">
+        <mat-icon>logout</mat-icon>Log Out
+      </button>
+    </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="head1">
+        <span><input type="text" name="search" [(ngModel)]="searchText" autocomplete="off" class="Search-input" 
+          placeholder="&#61442;  Start searching by title"><button mat-raised-button class="Search-button">
+             <mat-icon>search</mat-icon></button></span>
+        <span><button mat-icon-button><mat-icon>mic</mat-icon></button></span>
+      </div>
+      <div class="head2">
+        <span><button mat-icon-button><mat-icon>video_call</mat-icon></button></span>
+        <span><button mat-icon-button><mat-icon>apps</mat-icon></button></span>
+        <span><button mat-icon-button><mat-icon>notifications</mat-icon></button></span>
+        <span><button mat-icon-button><mat-icon>perm_identity</mat-icon></button></span>
+      </div>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    
+    <div fxLayout="row wrap" fxLayoutGap="2px grid" >
+      <div class="top-button" *ngFor="let num of values">
+        <button mat-raised-button class="top-button">{{num.name}}</button>
+      </div>
+      <div fxFlex="25%" *ngFor="let n of cardvalues | filter:searchText" 
+      fxFlex="25"
+      fxFlex.md="33"
+      fxFlex.sm="50"
+      fxFlex.xs="100"
+      fxLayout="column"
+      >
+        <mat-card class="example-card" >
+          <img mat-card-image src="{{n.source}}" class="img" >
+          <mat-card-title class="title">{{n.title}}</mat-card-title>
+          <mat-card-actions>
+            <div>
+              <span><button mat-icon-button>
+                  <mat-icon>thumb_up</mat-icon>
+                </button></span>
+                <span> Like</span>
+                <span><button mat-icon-button>
+                  <mat-icon>mode_comment</mat-icon>
+                </button></span>
+                <span> Comment</span>
+                <span><button mat-icon-button>
+                  <mat-icon>share</mat-icon>
+                </button></span>
+                <span> Share</span>
+            </div>
+          </mat-card-actions>
+        </mat-card>
+        </div>
+      </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

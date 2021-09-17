@@ -1,0 +1,59 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.Search-button{
+  height: 35px;
+  width: 10px;
+  background-color: lightgrey;
+}
+.Search-input{
+  height: 28px;
+  width: 400px;
+}
+.head1{
+  margin-top: 0%;
+  margin-left: 10%;
+}
+.head2{
+  margin-top: 0%;
+  margin-left: 30%;
+}
+
+.img1{
+  height: 50px;
+  width: 100px;
+}
+
+
+.example-card {
+  max-width: 250px;
+  margin-top: 5%;
+}
+
+.img{
+  height: 230px;
+}
+.title{
+  font-size: 20px;
+}
+
+.top-button{
+  margin-top: 1%;
+  border-radius: 20px;
+  background-color: lightgrey;
+}
